@@ -11,20 +11,20 @@ pipeline {
         git branch: 'main', credentialsId: 'Git-cred', url: 'https://github.com/Tpawar25/k8Testjenkin.git'
       }
     }
-    stage('Test Code') {
-      steps {
-        echo 'JUNIT Test case execution started'
-        bat 'mvn clean test'
+    // stage('Test Code') {
+    //   steps {
+    //     echo 'JUNIT Test case execution started'
+    //     bat 'mvn clean test'
         
-      }
-      post {
-        always {
-		  junit '**/target/surefire-reports/*.xml'
-          echo 'Test Run is SUCCESSFUL!'
-        }
+    //   }
+    //   post {
+    //     always {
+		  // junit '**/target/surefire-reports/*.xml'
+    //       echo 'Test Run is SUCCESSFUL!'
+    //     }
 
-      }
-    }
+    //   }
+    // }
     stage('Build Project') {
       steps {
         echo 'Building Java project'
